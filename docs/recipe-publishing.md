@@ -37,3 +37,21 @@ No additional GitHub setup was required for the first test. The built-in image
 Mealie instance and authorized API/session access are still needed. Never store
 credentials in this repository. Instructions here document an agent workflow;
 they are not a separately installed or scheduled autonomous agent.
+
+## Multi-component recipes (user preference, 2026-11-15)
+
+Keep one combined recipe unless separate recipes are requested. Group ingredients
+visibly by component, and group preparation with named schema.org HowToSection
+objects containing HowToStep entries. Preserve source order and parallel timing.
+Do not invent missing component instructions. Split a mixed step only at existing
+sentence boundaries where necessary.
+
+Mealie v3.27.0 clean_instructions preserves HowToSection names as RecipeStep.title;
+verified directly against the tagged source. Its URL scraper reads ingredients as
+a flat list, so HTML headings alone do not become native ingredient group titles.
+For URL imports, append a short component label to every ingredient string, e.g.
+50 ml Milch [Hähnchen], while preserving the source amount and unit. This makes
+assignment visible even when native ingredient groups are not created. Native
+ingredient title fields require a suitable native import or authorized API update;
+do not claim they were created through standard URL JSON-LD. A real import test
+still requires an authorized reachable Mealie instance.
